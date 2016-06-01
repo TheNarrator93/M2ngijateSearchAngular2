@@ -1,0 +1,19 @@
+<nav>
+  <a [routerLink]="['./List', { klubi: '' }]">
+    <img src="media/04.png" class="icon"/>
+  </a>
+  <a [routerLink]="['./List', { klubi: 'Arsenal' }]">
+    <img src="media/03.png" class="icon"/>
+  </a>
+  <a [routerLink]="['./List', { klubi: 'Manu' }]">
+    <img src="media/02.png" class="icon"/>
+  </a>
+</nav>
+<section>
+    <header>
+        <h1>Jalgpallurite list</h1>
+        <p class="description">Sorteerib erinevaid jalgpallureid</p>
+    </header>
+    <mangijate-vorm></mangijate-vorm>
+    <router-outlet></router-outlet>
+</section>

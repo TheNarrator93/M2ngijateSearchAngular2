@@ -1,0 +1,42 @@
+<header>
+    <h2>Lisa mangija listi</h2>
+</header>
+<form
+(ngSubmit)="onSubmit(vorm.value)"
+[ngFormModel]="vorm">
+    <ul>
+        <li>
+            <label for="klubi">Klubi</label>
+            <select name="klubi" id="klubi" required
+            ngControl="klubi">
+            <option *ngFor="#klubinimed of leiaklubid.klubidd" value="{{ klubinimed }}" >{{ klubinimed }}</option>
+            </select>
+        </li>
+        <li>
+            <label for="nimi">Nimi</label>
+            <input type="text" name="nimi" id="nimi" required
+            ngControl="nimi"
+            #nimi="ngForm">
+            <div *ngIf="nimi.errors?.pattern" class="error">Nimi on valesti kirjutatud</div>
+        </li>
+        <li>
+            <label for="positsioon">Positsioon</label>
+            <select name="positsioon" id="positsioon"
+            ngControl="positsioon">
+                <option value="Ryndaja">Ründaja</option>
+                <option value="Keskvali">Keskväli</option>
+                <option value="Kaitse">Kaitse</option>
+                <option value="aareryndaja">Ääreründaja</option>
+                <option value="varavvaht">Väravvaht</option>
+            </select>
+        </li>
+        <li>
+            <label for="synniaasta">Sünniaasta</label>
+            <input type="text" name="synniaasta" id="synniaasta" maxlength="4"
+            ngControl="synniaasta"
+            #synniaasta="ngForm">
+            <div *ngIf="synniaasta.errors?.synniaasta" class="error">Sünniaasta peab olema {{ synniaasta.errors?.synniaasta.min }} ja {{synniaasta.errors?.synniaasta.max}} aasta vahel</div>
+        </li>
+    </ul>
+    <button type="submit" [disabled]="!vorm.valid">Salvesta</button>
+</form>

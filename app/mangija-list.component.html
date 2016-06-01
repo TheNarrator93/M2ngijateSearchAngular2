@@ -1,0 +1,15 @@
+
+<header>
+    <div>{{ mangijad | positsioonList }}</div>
+</header>
+<section>
+    <mangija *ngFor="#mangija of mangijad"
+        [mangijaToWatch]="mangija"
+        (deleted)="onMediaItemDeleted($event)"
+        [ngClass]="{'klubi-Arsenal': mangija.klubi === 'Arsenal', 'klubi-Manu': mangija.klubi === 'Manu'}"></mangija>
+</section>
+<footer>
+  <a href="#">
+    <img src="media/01.png" class="icon" />
+  </a>
+</footer>
